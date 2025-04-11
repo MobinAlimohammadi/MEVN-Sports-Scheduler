@@ -49,7 +49,8 @@ const router = useRouter();
 
 const login = async () => {
   try {
-    const response = await axios.post('/api/auth/login', {
+    const response = await axios.post(
+  `${import.meta.env.VITE_API_BASE_URL}/auth/login`, {
       username: username.value,
       password: password.value,
     });

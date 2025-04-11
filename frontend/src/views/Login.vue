@@ -61,6 +61,8 @@
   import { useRouter } from 'vue-router';
   import axios from 'axios';
   
+  axios.defaults.baseURL = "https://mevn-sports-scheduler-1.onrender.com/";
+  
   const username = ref('');
   const password = ref('');
   const usernameError = ref('');

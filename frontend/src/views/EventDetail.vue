@@ -13,14 +13,14 @@
             <p class="mb-3"><strong>Date:</strong> {{ formatDate(event.date) }}</p>
             <p class="mb-3"><strong>Time:</strong> {{ formatTime(event.date) }}</p>
             <p class="mb-3"><strong>Type:</strong> {{ capitalize(event.description) }}</p>
-            <p class="mb-3"><strong>Age Group:</strong> {{ event.ageGroup || 'N/A' }}</p>
-            <p class="mb-3"><strong>Gender:</strong> {{ capitalize(event.gender) || 'N/A' }}</p>
+            <p class="mb-3"><strong>Age Group:</strong> {{ league?.ageGroup || 'N/A' }}</p> <!-- 🔥 from league -->
+            <p class="mb-3"><strong>Gender:</strong> {{ capitalize(league?.gender) || 'N/A' }}</p> <!-- 🔥 from league -->
           </div>
 
           <!-- Right Column -->
           <div class="column is-half">
-            <p class="mb-3"><strong>League ID:</strong> {{ event.leagueId || 'N/A' }}</p>
-            <p class="mb-3"><strong>Team ID:</strong> {{ event.teams?.[0] || 'N/A' }}</p>
+            <p class="mb-3"><strong>League:</strong> {{ formatLeague(league) }}</p>
+            <p class="mb-3"><strong>Team:</strong> {{ team?.name || 'N/A' }}</p>
             <p class="mb-3">
               <strong>Address:</strong>
               <a :href="mapLink" target="_blank" class="has-text-link">
@@ -60,6 +60,8 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const event = ref(null);
+const league = ref(null); // 🔥
+const team = ref(null); // 🔥
 const loading = ref(true);
 const error = ref('');
 
@@ -69,6 +71,18 @@ const fetchEvent = async () => {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed to fetch event');
     event.value = data;
+
+    // 🔥 Fetch league and team
+    if (data.leagueId) {
+      const leagueRes = await fetch(`http://localhost:3000/api/leagues/${data.leagueId}`);
+      if (leagueRes.ok) league.value = await leagueRes.json();
+    }
+
+    if (data.teams?.length) {
+      const teamRes = await fetch(`http://localhost:3000/api/teams/${data.teams[0]}`);
+      if (teamRes.ok) team.value = await teamRes.json();
+    }
+
   } catch (err) {
     console.error('❌ Event fetch error:', err.message);
     error.value = err.message;
@@ -91,6 +105,11 @@ const formatDate = (dateStr) =>
 
 const formatTime = (dateStr) =>
   new Date(dateStr).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+const formatLeague = (league) => {
+  if (!league) return 'N/A';
+  return `${league.sport} - ${league.season} (${league.ageGroup})`;
+};
 
 const capitalize = (text) =>
   text ? text.charAt(0).toUpperCase() + text.slice(1).toLowerCase() : '';

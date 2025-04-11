@@ -49,8 +49,8 @@ router.post('/request-password-reset', async (req, res) => {
     if (!user) return res.status(404).json({ error: 'No user with that email' });
 
     const token = crypto.randomBytes(32).toString('hex');
-    user.resetPasswordToken = token;
-    user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+    user.resetToken = token;
+    user.resetTokenExpires = Date.now() + 3600000; // 1 hour
     await user.save();
 
     const resetLink = `http://localhost:5173/reset-password/${token}`;
@@ -81,8 +81,8 @@ router.post('/reset-password/:token', async (req, res) => {
 
   try {
     const user = await User.findOne({
-      resetPasswordToken: token,
-      resetPasswordExpires: { $gt: Date.now() },
+      resetToken: token,
+      resetTokenExpires: { $gt: Date.now() },
     });
 
     if (!user) {
@@ -91,8 +91,8 @@ router.post('/reset-password/:token', async (req, res) => {
 
     const hashed = await bcrypt.hash(password, 10);
     user.password = hashed;
-    user.resetPasswordToken = undefined;
-    user.resetPasswordExpires = undefined;
+    user.resetToken = undefined;
+    user.resetTokenExpires = undefined;
 
     await user.save();
     res.json({ message: 'Password updated successfully!' });
@@ -101,6 +101,7 @@ router.post('/reset-password/:token', async (req, res) => {
     res.status(500).json({ error: 'Failed to reset password. Please try again.' });
   }
 });
+
 
 export default router;
 

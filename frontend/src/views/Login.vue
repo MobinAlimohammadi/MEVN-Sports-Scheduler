@@ -78,13 +78,19 @@
   };
   
   const handleLogin = async () => {
-    if (!validateInputs()) return;
+    // if (!validateInputs()) return;
   
     try {
+      console.log("running stuff" + " username is" + username + " pass is " + password);
+
       const response = await axios.post('/api/auth/login', {
         username: username.value.trim(),
         password: password.value.trim(), // ✅ remove trailing spaces
       });
+
+
+
+      console.log(response.data);
 
       const { token, role, username: returnedUsername } = response.data;
 

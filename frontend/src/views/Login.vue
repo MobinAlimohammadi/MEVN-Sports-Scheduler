@@ -63,7 +63,7 @@
 
   
 
-  axios.defaults.baseURL = "https://mevn-sports-scheduler-1.onrender.com"
+  axios.defaults.baseURL = "https://mevn-sports-scheduler.onrender.com:3000"
 
   
   const username = ref('');
@@ -87,7 +87,7 @@
       console.log("running stuff" + " username is" + username.value + " pass is " + password.value);
 
       const response = await axios.post('/api/auth/login', {
-        username: username.value.trim(),
+        username: username.value.trim(),  
         password: password.value.trim(), // ✅ remove trailing spaces
       });
 

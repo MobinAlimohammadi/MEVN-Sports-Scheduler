@@ -83,6 +83,12 @@
         username: username.value.trim(),
         password: password.value.trim(), // ✅ remove trailing spaces
       });
+
+      const { token, role, username: returnedUsername } = response.data;
+
+    if (!token || !role) {
+      throw new Error('Login failed: missing token or role.');
+    }
   
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('role', response.data.role);

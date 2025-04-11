@@ -126,11 +126,18 @@ const deleteEvent = async (eventId) => {
   const confirmDelete = confirm('Are you sure you want to delete this event?');
   if (!confirmDelete) return;
 
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('⚠️ You are not authenticated. Please login again.');
+    return;
+  }
+
   try {
     const res = await fetch(`https://mevn-sports-scheduler.onrender.com/api/events/${eventId}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
       },
     });
 

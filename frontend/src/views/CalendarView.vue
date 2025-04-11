@@ -34,7 +34,7 @@ const router = useRouter();
 
 const fetchEvents = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/events');
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/events');
     const data = await res.json();
 
 

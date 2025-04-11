@@ -22,7 +22,7 @@ const createLeague = async () => {
   try {
     const token = localStorage.getItem('token'); // get token
 
-    const response = await fetch('http://localhost:3000/api/leagues', {
+    const response = await fetch('https://mevn-sports-scheduler.onrender.com/api/leagues', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

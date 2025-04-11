@@ -59,7 +59,7 @@ const sortAsc = ref(true);
 
 const fetchLeagues = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/leagues');
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/leagues');
     const data = await res.json();
     leagues.value = data;
   } catch (err) {
@@ -74,7 +74,7 @@ const deleteLeague = async (leagueId) => {
   if (!confirmDelete) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/leagues/${leagueId}`, {
+    const res = await fetch(`https://mevn-sports-scheduler.onrender.com/api/leagues/${leagueId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

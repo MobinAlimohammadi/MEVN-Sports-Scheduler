@@ -46,8 +46,8 @@ const timeOptions = [
 const loadInitialData = async () => {
   try {
     const [leaguesRes, teamsRes] = await Promise.all([
-      fetch('http://localhost:3000/api/leagues'),
-      fetch('http://localhost:3000/api/teams'),
+      fetch('https://mevn-sports-scheduler.onrender.com/api/leagues'),
+      fetch('https://mevn-sports-scheduler.onrender.com/api/teams'),
     ]);
     leagues.value = await leaguesRes.json();
     teams.value = await teamsRes.json();
@@ -76,7 +76,7 @@ watch(
 
 const initMap = async () => {
   try {
-    const { key } = await fetch('http://localhost:3000/api/config/google-maps-key').then(res => res.json());
+    const { key } = await fetch('https://mevn-sports-scheduler.onrender.com/api/config/google-maps-key').then(res => res.json());
 
     // const loader = new Loader({
     // apiKey: key,
@@ -84,7 +84,7 @@ const initMap = async () => {
     // libraries: ['places'],
     // }); x
 
-
+    const loader = await getGoogleMapsLoader();
     await loader.load();
 
     map.value = new google.maps.Map(mapElement.value, {
@@ -125,7 +125,7 @@ const handleSubmit = async () => {
     const token = localStorage.getItem('token');
     const datetime = new Date(`${event.value.date}T${event.value.time}`);
 
-    const res = await fetch('http://localhost:3000/api/events', {
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/events', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

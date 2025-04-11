@@ -1,12 +1,18 @@
 // utils/googleMapsLoader.js
 import { Loader } from '@googlemaps/js-api-loader';
-const { Key } = await fetch('http://localhost:3000/api/config/google-maps-key').then(res => res.json());
 
+let cachedLoader = null;
 
-const loader = new Loader({
-  apiKey: Key, // Replace with your actual key
-  version: 'weekly',
-  libraries: ['places'],
-});
+export async function getGoogleMapsLoader() {
+  if (cachedLoader) return cachedLoader;
 
-export default loader;
+  const { key } = await fetch('/api/config/google-maps-key').then(res => res.json());
+
+  cachedLoader = new Loader({
+    apiKey: key,
+    version: 'weekly',
+    libraries: ['places'],
+  });
+
+  return cachedLoader;
+}

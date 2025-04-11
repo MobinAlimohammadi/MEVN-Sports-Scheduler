@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'https://mevn-sports-scheduler.onrender.com',
     },
   }, optimizeDeps: {
     include: [

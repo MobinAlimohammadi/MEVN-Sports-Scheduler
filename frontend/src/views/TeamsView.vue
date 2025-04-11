@@ -101,7 +101,7 @@ const filterGender = ref('');
 
 const fetchTeams = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/teams', {
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/teams', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -121,7 +121,7 @@ const deleteTeam = async (teamId) => {
   if (!confirm('Are you sure you want to delete this team? This will also delete all related events.')) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/teams/${teamId}`, {
+    const res = await fetch(`https://mevn-sports-scheduler.onrender.com/api/teams/${teamId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

@@ -95,7 +95,7 @@ const teamsMap = ref({});
 
 const fetchEvents = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/events');
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/events');
     const data = await res.json();
     events.value = data;
   } catch (err) {
@@ -106,8 +106,8 @@ const fetchEvents = async () => {
 const fetchLeaguesAndTeams = async () => {
   try {
     const [leaguesRes, teamsRes] = await Promise.all([
-      fetch('http://localhost:3000/api/leagues'),
-      fetch('http://localhost:3000/api/teams'),
+      fetch('https://mevn-sports-scheduler.onrender.com/api/leagues'),
+      fetch('https://mevn-sports-scheduler.onrender.com/api/teams'),
     ]);
     const leaguesData = await leaguesRes.json();
     const teamsData = await teamsRes.json();
@@ -127,7 +127,7 @@ const deleteEvent = async (eventId) => {
   if (!confirmDelete) return;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/events/${eventId}`, {
+    const res = await fetch(`https://mevn-sports-scheduler.onrender.com/api/events/${eventId}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

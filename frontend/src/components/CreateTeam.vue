@@ -27,7 +27,7 @@ const emit = defineEmits(['close-team-modal']);
 
 const fetchLeagues = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/leagues');
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/leagues');
     if (!res.ok) throw new Error('Could not fetch leagues');
     const data = await res.json();
     leagues.value = data;
@@ -42,7 +42,7 @@ const createTeam = async () => {
   try {
     const token = localStorage.getItem('token');
 
-    const res = await fetch('http://localhost:3000/api/teams', {
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/teams', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',

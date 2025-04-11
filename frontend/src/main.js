@@ -12,7 +12,7 @@ import VueCal from 'vue-cal';
 const app = createApp(App);
 
 const init = async () => {
-    const res = await fetch('http://localhost:3000/api/config/google-maps-key');
+    const res = await fetch('https://mevn-sports-scheduler.onrender.com/api/config/google-maps-key');
     const data = await res.json();
     const apiKey = data.apiKey;
   

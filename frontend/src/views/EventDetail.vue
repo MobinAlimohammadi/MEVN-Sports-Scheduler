@@ -67,19 +67,19 @@ const error = ref('');
 
 const fetchEvent = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/events/${route.params.id}`);
+    const res = await fetch(`https://mevn-sports-scheduler.onrender.com/api/events/${route.params.id}`);
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed to fetch event');
     event.value = data;
 
     // 🔥 Fetch league and team
     if (data.leagueId) {
-      const leagueRes = await fetch(`http://localhost:3000/api/leagues/${data.leagueId}`);
+      const leagueRes = await fetch(`https://mevn-sports-scheduler.onrender.com/api/leagues/${data.leagueId}`);
       if (leagueRes.ok) league.value = await leagueRes.json();
     }
 
     if (data.teams?.length) {
-      const teamRes = await fetch(`http://localhost:3000/api/teams/${data.teams[0]}`);
+      const teamRes = await fetch(`https://mevn-sports-scheduler.onrender.com/api/teams/${data.teams[0]}`);
       if (teamRes.ok) team.value = await teamRes.json();
     }
 

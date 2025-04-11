@@ -10,7 +10,7 @@ import LeagueDetail from '../views/LeagueDetail.vue';
 import ResetPassword from '../views/ResetPassword.vue';
 import RequestPasswordReset from '../views/RequestPasswordReset.vue';
 import Register from '../views/Register.vue';
-
+import EventDetail from '../views/EventDetail.vue';
 
 const routes = [
   { path: '/', redirect: '/login' },
@@ -25,7 +25,8 @@ const routes = [
   { path: '/reset-password/:token', component: ResetPassword },
   { path: '/request-password-reset/', component: RequestPasswordReset },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: Login }
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: Login },
+  { path: '/events/:id', name: 'EventDetail', component: EventDetail}
 ];
 
 const router = createRouter({

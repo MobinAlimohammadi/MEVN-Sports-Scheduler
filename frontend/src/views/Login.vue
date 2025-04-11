@@ -60,8 +60,11 @@
   import { ref, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
   import axios from 'axios';
+
   
-  axios.defaults.baseURL = "https://mevn-sports-scheduler-1.onrender.com/";
+
+  axios.defaults.baseURL = "https://mevn-sports-scheduler-1.onrender.com"
+
   
   const username = ref('');
   const password = ref('');
@@ -81,7 +84,7 @@
     // if (!validateInputs()) return;
   
     try {
-      console.log("running stuff" + " username is" + username + " pass is " + password);
+      console.log("running stuff" + " username is" + username.value + " pass is " + password.value);
 
       const response = await axios.post('/api/auth/login', {
         username: username.value.trim(),

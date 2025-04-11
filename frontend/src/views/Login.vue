@@ -63,7 +63,7 @@
 
   
 
-  axios.defaults.baseURL = "https://mevn-sports-scheduler.onrender.com:3000"
+  axios.defaults.baseURL = "https://mevn-sports-scheduler.onrender.com"
 
   
   const username = ref('');

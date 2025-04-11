@@ -14,6 +14,11 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username });
 
+  console.log('🧪 Incoming login attempt:');
+    console.log('🔐 Username from request:', username);
+    console.log('🔐 Password from request:', password);
+    console.log('🧠 Found user in DB:', user);
+
   if (!user) return res.status(401).json({ message: 'Invalid credentials' });
 
   const isMatch = await bcrypt.compare(password, user.password);
@@ -53,7 +58,7 @@ router.post('/request-password-reset', async (req, res) => {
     user.resetTokenExpires = Date.now() + 3600000; // 1 hour
     await user.save();
 
-    const resetLink = `http://localhost:5173/reset-password/${token}`;
+    const resetLink = `https://mevn-sports-scheduler-1.onrender.com/reset-password/${token}`;
 
     await transporter.sendMail({
       from: `"BVG Athletics" <${process.env.GMAIL_USER}>`,

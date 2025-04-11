@@ -19,6 +19,7 @@ watch(leagueId, (newId) => {
   const selectedLeague = leagues.value.find(league => league._id === newId);
   if (selectedLeague) {
     gender.value = selectedLeague.gender;
+    ageGroup.value = selectedLeague.ageGroup;
   }
 });
 
@@ -104,8 +105,8 @@ onMounted(() => {
           </div>
 
           <div class="column is-half">
-            <label class="label">Age Group</label>
-            <input v-model="ageGroup" type="text" class="input" placeholder="e.g., U12, U18" required />
+            <label class="label">Age Group (from League)</label>
+            <input v-model="ageGroup" type="text" class="input" disabled />
           </div>
 
           <div class="column is-half">

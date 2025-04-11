@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 
+
 const sport = ref('');
 const season = ref('');
 const ageGroup = ref('');

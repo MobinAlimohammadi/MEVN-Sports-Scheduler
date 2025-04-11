@@ -9,4 +9,6 @@ router.get('/dashboard-data', requireAuth, requireAdmin, (req, res) => {
   res.json({ message: 'Secure dashboard content', userId: req.user.id });
 });
 
+
+
 export default router;

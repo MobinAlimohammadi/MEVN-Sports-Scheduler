@@ -9,6 +9,8 @@
   :events="events"
   default-view="month"
   :disable-views="['years']"
+    :time-from="480"
+  :time-to="1200"
   :time="true"
   
   sticky-split-labels
@@ -18,7 +20,7 @@
 />
 
 
-      />
+  
     </div>
   </section>
 </template>
@@ -36,15 +38,15 @@ const fetchEvents = async () => {
     const data = await res.json();
 
 
-    const onEventClick = ({ event }) => {
-      if (event.id) {
-        router.push(`/events/${event.id}`);
-      }
-    };
+    // const onEventClick = ({ event }) => {
+    //   if (event.id) {
+    //     router.push(`/events/${event.id}`);
+    //   }
+    // };
     
     events.value = data.map(event => ({
   id: event._id,
-  title: event.name || 'Untitled Event',
+  title: `<a href="/events/${event._id}" class="event-link">${event.name}</a>`,
   start: new Date(event.date),
   end: new Date(new Date(event.date).getTime() + 60 * 60 * 2000), // 1 hour duration
   content: event.description === 'practice' ? 'Practice' : 'Match',

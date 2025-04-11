@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config(); 
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017'; 
+const uri = process.env.MONGODB_URI || 'mongodb://mevn-sports-scheduler.onrender.com:27017'; 
 const dbName = 'BVG Athletics';
 
 let db;

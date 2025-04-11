@@ -3,4 +3,4 @@ a/
 backend/node_modules
 backend/.env
 frontend/node_modules
-backend/utils/email.js
+

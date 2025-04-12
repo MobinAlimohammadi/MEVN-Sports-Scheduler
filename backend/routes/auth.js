@@ -68,6 +68,7 @@ router.post('/request-password-reset', async (req, res) => {
       to: user.email,
       subject: 'Reset Your Password',
       html: `
+        <p>Hi, ${user.username}</p>
         <p>You requested a password reset.</p>
         <p>Click the link below to reset it:</p>
         <a href="${resetLink}">${resetLink}</a>

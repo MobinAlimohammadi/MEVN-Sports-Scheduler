@@ -21,17 +21,21 @@
   
             <div class="field">
               <label class="label">Password</label>
-              <div class="control">
+              <div class="control has-icons-right">
                 <input
                   v-model="password"
                   class="input"
-                  type="password"
+                  :type="showPassword ? 'text' : 'password'"
                   placeholder="Enter password"
                   required
                 />
+                <span class="icon is-small is-right" @click="togglePassword" style="cursor: pointer;">
+                  <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+                </span>
               </div>
               <p v-if="passwordError" class="help is-danger">{{ passwordError }}</p>
             </div>
+
   
             <div class="field mt-4">
               <button class="button is-primary is-fullwidth" type="submit">Login</button>
@@ -73,6 +77,12 @@
   const loginAttempts = ref(parseInt(localStorage.getItem('loginAttempts')) || 0);
   const showRecoveryPrompt = ref(loginAttempts.value >= 3);
   const router = useRouter();
+  const showPassword = ref(false);
+  
+  const togglePassword = () => {
+    showPassword.value = !showPassword.value;
+  };
+
   
   const validateInputs = () => {
     usernameError.value = '';

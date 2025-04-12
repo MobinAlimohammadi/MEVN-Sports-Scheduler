@@ -6,7 +6,7 @@ let cachedLoader = null;
 export async function getGoogleMapsLoader() {
   if (cachedLoader) return cachedLoader;
 
-  const { key } = await fetch('/api/config/google-maps-key').then(res => res.json());
+  const { Key } = await fetch('/api/config/google-maps-key').then(res => res.json());
 
   cachedLoader = new Loader({
     apiKey: key,

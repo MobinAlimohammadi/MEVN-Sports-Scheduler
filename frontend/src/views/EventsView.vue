@@ -82,6 +82,7 @@
 import { ref, onMounted, computed } from 'vue';
 
 
+const role = ref(localStorage.getItem('role') || 'guest');
 
 const events = ref([]);
 const leagues = ref([]);
@@ -92,6 +93,7 @@ const sortAsc = ref(true);
 
 const leaguesMap = ref({});
 const teamsMap = ref({});
+
 
 const fetchEvents = async () => {
   try {

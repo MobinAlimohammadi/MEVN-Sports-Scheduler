@@ -6,10 +6,10 @@ let cachedLoader = null;
 export async function getGoogleMapsLoader() {
   if (cachedLoader) return cachedLoader;
 
-  const { Key } = await fetch('/api/config/google-maps-key').then(res => res.json());
+  const { Key } = await fetch('https://mevn-sports-scheduler.onrender.com/api/config/google-maps-key').then(res => res.json());
 
   cachedLoader = new Loader({
-    apiKey: key,
+    apiKey: Key,
     version: 'weekly',
     libraries: ['places'],
   });

@@ -32,6 +32,8 @@
   <script setup>
   import { ref } from 'vue';
   import axios from 'axios';
+  axios.defaults.baseURL = "https://mevn-sports-scheduler.onrender.com"
+
   
   const email = ref('');
   const loading = ref(false);

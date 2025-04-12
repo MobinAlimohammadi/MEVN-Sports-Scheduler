@@ -1,7 +1,8 @@
 <script setup>
 import { ref, onMounted, nextTick, watch, computed } from 'vue';
 //import { Loader } from '@googlemaps/js-api-loader';
-import loader from '../utils/googleMapsLoader.js';
+import { getGoogleMapsLoader } from '../utils/googleMapsLoader.js';
+
 
 const event = ref({
   name: '',
@@ -76,7 +77,7 @@ watch(
 
 const initMap = async () => {
   try {
-    const { key } = await fetch('https://mevn-sports-scheduler.onrender.com/api/config/google-maps-key').then(res => res.json());
+    //const { key } = await fetch('https://mevn-sports-scheduler.onrender.com/api/config/google-maps-key').then(res => res.json());
 
     // const loader = new Loader({
     // apiKey: key,

@@ -22,7 +22,7 @@
               <th @click="sortBy('address')">Address</th>
               <th @click="sortBy('leagueId')">League</th>
               <th @click="sortBy('teams')">Team</th>
-              <th class="has-text-centered">Actions</th>
+              <th v-if="role === 'admin'" class="has-text-centered">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -58,7 +58,7 @@
                     : 'N/A'
                 }}
               </td>
-              <td class="has-text-centered">
+              <td v-if="role === 'admin'" class="has-text-centered">
                 <button
                   class="button is-danger is-small"
                   @click="deleteEvent(event._id)"
@@ -198,6 +198,7 @@ const sortedEvents = computed(() => {
 });
 
 onMounted(async () => {
+  role.value = localStorage.getItem('role') || 'guest';
   await fetchLeaguesAndTeams();
   await fetchEvents();
 });

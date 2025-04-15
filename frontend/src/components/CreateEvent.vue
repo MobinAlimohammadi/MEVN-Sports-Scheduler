@@ -69,7 +69,7 @@ watch(
       initMap();
     }
   },
-  { immediate: true } // 🔥 This ensures it runs if already true
+  { immediate: true } 
 );
 
 

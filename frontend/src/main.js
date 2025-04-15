@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import 'bulma/css/bulma.min.css';
-import 'vue-cal/dist/vuecal.css'; // 💅 default styles
+import 'vue-cal/dist/vuecal.css'; 
 import VueCal from 'vue-cal';
 //import VueGoogleMaps from '@fawmi/vue-google-maps';
 //import { Vue3GoogleMap } from 'vue3-google-map';

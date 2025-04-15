@@ -5,7 +5,7 @@
           <h1 class="title is-4">📝 Register</h1>
   
           <form @submit.prevent="handleRegister">
-            <!-- Username -->
+            <!-- Username stuf -->
             <div class="field">
               <label class="label">Username</label>
               <div class="control">
@@ -20,7 +20,7 @@
               <p v-if="usernameError" class="help is-danger">{{ usernameError }}</p>
             </div>
   
-            <!-- Email -->
+            <!-- Email stuf -->
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
@@ -35,7 +35,7 @@
               <p v-if="emailError" class="help is-danger">{{ emailError }}</p>
             </div>
   
-            <!-- Password -->
+            <!-- Password  stuf -->
             <div class="field">
               <label class="label">Password</label>
               <div class="control">

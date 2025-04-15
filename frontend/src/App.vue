@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- ✅ Hide navbar on login route -->
+    
     <Navbar
       v-if="!['/login', '/register', '/reset-password', '/request-password-reset'].includes(route.path)"
       @open-league="showLeagueModal = true"
@@ -8,14 +8,14 @@
       @open-event="showEventModal = true"
     />
 
-    <!-- Main Content -->
+    
     <section class="section">
       <div class="container">
         <router-view />
       </div>
     </section>
 
-    <!-- Create Modals -->
+    <!--  Modals stuff -->
     <CreateLeague
       v-if="showLeagueModal"
       :showLeagueModal="showLeagueModal"

@@ -20,7 +20,7 @@
           Dashboard
         </RouterLink>
 
-        <!-- 🎯 Admin-only Create buttons -->
+        <!-- Admin-only Create buttons and stuff  -->
         <div v-if="role === 'admin'" class="navbar-item">
           <div class="buttons">
             <button class="button is-small is-link" @click="$emit('open-league')">+ League</button>
@@ -32,12 +32,12 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <!-- ✅ Welcome Message -->
+          <!-- Welcome Message in the top coerner -->
           <span v-if="isLoggedIn" class="has-text-white mr-3">
             Welcome, <strong>{{ username }}</strong> ({{ role.toLowerCase() }})
           </span>
 
-          <!-- Login / Logout Button -->
+          <!-- Login / Logout -->
           <RouterLink
             v-if="!isLoggedIn"
             to="/login"

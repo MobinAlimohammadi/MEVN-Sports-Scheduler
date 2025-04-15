@@ -72,7 +72,7 @@
       });
   
       success.value = res.data.message;
-      setTimeout(() => router.push('/login'), 3000); // Auto redirect
+      setTimeout(() => router.push('/login'), 3000); // Auto redirect so its easier to login once ur done reseting password
     } catch (err) {
       error.value = err.response?.data?.error || 'Reset failed. Try again.';
     }

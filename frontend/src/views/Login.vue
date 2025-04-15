@@ -77,7 +77,7 @@ const router = useRouter();
 const validateInputs = () => {
   usernameError.value = '';
   passwordError.value = '';
-  return true; // No validation on login
+  return true; 
 };
 
 const handleLogin = async () => {
@@ -88,7 +88,7 @@ const handleLogin = async () => {
 
     const response = await axios.post('/api/auth/login', {
       username: username.value.trim(),  
-      password: password.value.trim(), // ✅ remove trailing spaces
+      password: password.value.trim(), // code so that the trailing spaces arent in the acc login credentials
     });
 
 
@@ -104,7 +104,7 @@ const handleLogin = async () => {
     localStorage.setItem('token', response.data.token);
     localStorage.setItem('role', response.data.role);
     localStorage.setItem('username', response.data.username || username.value);
-    localStorage.setItem('loginAttempts', '0'); // ✅ reset after successful login
+    localStorage.setItem('loginAttempts', '0'); // reset after working login
 
     router.push(response.data.role === 'admin' ? '/dashboard' : '/calendar');
   } catch (err) {

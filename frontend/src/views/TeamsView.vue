@@ -3,17 +3,17 @@
     <div class="hero-body">
       <div class="container">
 
-        <!-- Title -->
+        
         <div class="mb-5 has-text-centered">
           <h1 class="title is-2"> All Teams</h1>
           <p class="subtitle is-5">Browse, search, and filter registered teams</p>
         </div>
 
-        <!-- Filters -->
+        
         <div class="box">
           <div class="columns is-multiline is-vcentered">
 
-            <!-- Search -->
+            
             <div class="column is-6">
               <div class="field">
                 <p class="control has-icons-left">
@@ -30,7 +30,7 @@
               </div>
             </div>
 
-            <!-- Gender Filter -->
+            
             <div class="column is-3">
               <div class="select is-fullwidth is-rounded">
                 <select v-model="filterGender">
@@ -42,7 +42,7 @@
               </div>
             </div>
 
-            <!-- Refresh -->
+            
             <div class="column is-3 has-text-right">
               <button class="button is-link is-light is-rounded" @click="fetchTeams">
                 🔄 Refresh
@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <!-- Team Table -->
+        
         <div class="box">
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>

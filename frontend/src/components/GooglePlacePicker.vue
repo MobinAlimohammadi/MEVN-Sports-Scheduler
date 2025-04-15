@@ -16,7 +16,7 @@
   import { ref, onMounted } from 'vue';
   import { GoogleMap, Marker } from 'vue3-google-map';
   
-  const location = ref({ lat: 43.6532, lng: -79.3832 }); // Default to Toronto
+  const location = ref({ lat: 43.6532, lng: -79.3832 }); // Default to Toronto cus were patriotic
   const input = ref(null);
   
   onMounted(() => {

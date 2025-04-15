@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="title has-text-centered">📅 Event Calendar</h1>
 
-      <!-- Calendar with toggleable views -->
+      
       <vue-cal
   style="height: 700px"
   :events="events"
@@ -80,12 +80,12 @@ onMounted(fetchEvents);
 }
 
 .vuecal__event.match-event {
-  background-color: #6a2a2a; /* Blue for matches */
+  background-color: #6a2a2a; /* Blue for match */
   color: white;
 }
 
 .vuecal__event.practice-event {
-  background-color: #224e2a; /* Green for practices */
+  background-color: #224e2a; /* Green for practice */
   color: white;
 }
 </style>

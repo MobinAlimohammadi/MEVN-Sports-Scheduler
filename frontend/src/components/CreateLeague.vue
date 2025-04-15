@@ -17,7 +17,7 @@ const props = defineProps({
 
 const emit = defineEmits(['close-league-modal']);
 
-// Submit League to API
+
 const createLeague = async () => {
   try {
     const token = localStorage.getItem('token'); // get token
@@ -26,7 +26,7 @@ const createLeague = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`  // ✅ add this!
+        'Authorization': `Bearer ${token}`  // making sure to auth bc this page is a requireAuth in the backend
       },
       body: JSON.stringify({
         sport: sport.value.trim().toLowerCase(),
@@ -60,7 +60,7 @@ const createLeague = async () => {
 };
 
 
-// Close modal
+
 const closeModal = () => {
   emit('close-league-modal');
 };
@@ -80,7 +80,7 @@ const closeModal = () => {
           <form @submit.prevent="createLeague">
             <div class="columns is-multiline">
 
-              <!-- Season -->
+              
               <div class="column is-full">
                 <div class="field">
                   <label class="label">Season</label>
@@ -97,7 +97,7 @@ const closeModal = () => {
                 </div>
               </div>
 
-              <!-- Sport -->
+              
               <div class="column is-half">
                 <div class="field">
                   <label class="label">Sport</label>
@@ -113,7 +113,7 @@ const closeModal = () => {
                 </div>
               </div>
 
-              <!-- Age Group -->
+              
               <div class="column is-half">
                 <div class="field">
                   <label class="label">Age Group</label>
@@ -129,7 +129,7 @@ const closeModal = () => {
                 </div>
               </div>
 
-              <!-- Division -->
+              
               <div class="column is-half">
                 <div class="field">
                   <label class="label">Division</label>
@@ -145,7 +145,7 @@ const closeModal = () => {
                 </div>
               </div>
 
-              <!-- Gender -->
+              
               <div class="column is-half">
                 <div class="field">
                   <label class="label">Gender</label>
@@ -163,7 +163,7 @@ const closeModal = () => {
               </div>
             </div>
 
-            <!-- Submit Button -->
+            
             <div class="field">
               <div class="control">
                 <button type="submit" class="button is-primary">Add League</button>

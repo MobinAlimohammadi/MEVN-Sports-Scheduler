@@ -8,16 +8,16 @@
       <div v-if="event" class="box">
         <div class="columns is-multiline">
 
-          <!-- Left Column -->
+          <!-- Left side of the thing -->
           <div class="column is-half">
             <p class="mb-3"><strong>Date:</strong> {{ formatDate(event.date) }}</p>
             <p class="mb-3"><strong>Time:</strong> {{ formatTime(event.date) }}</p>
             <p class="mb-3"><strong>Type:</strong> {{ capitalize(event.description) }}</p>
-            <p class="mb-3"><strong>Age Group:</strong> {{ league?.ageGroup || 'N/A' }}</p> <!-- 🔥 from league -->
-            <p class="mb-3"><strong>Gender:</strong> {{ capitalize(league?.gender) || 'N/A' }}</p> <!-- 🔥 from league -->
+            <p class="mb-3"><strong>Age Group:</strong> {{ league?.ageGroup || 'N/A' }}</p> 
+            <p class="mb-3"><strong>Gender:</strong> {{ capitalize(league?.gender) || 'N/A' }}</p> 
           </div>
 
-          <!-- Right Column -->
+          <!-- Right side thing-->
           <div class="column is-half">
             <p class="mb-3"><strong>League:</strong> {{ formatLeague(league) }}</p>
             <p class="mb-3"><strong>Team:</strong> {{ team?.name || 'N/A' }}</p>
@@ -60,8 +60,8 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const event = ref(null);
-const league = ref(null); // 🔥
-const team = ref(null); // 🔥
+const league = ref(null); 
+const team = ref(null); 
 const loading = ref(true);
 const error = ref('');
 
@@ -72,7 +72,7 @@ const fetchEvent = async () => {
     if (!res.ok) throw new Error(data.error || 'Failed to fetch event');
     event.value = data;
 
-    // 🔥 Fetch league and team
+    
     if (data.leagueId) {
       const leagueRes = await fetch(`https://mevn-sports-scheduler.onrender.com/api/leagues/${data.leagueId}`);
       if (leagueRes.ok) league.value = await leagueRes.json();

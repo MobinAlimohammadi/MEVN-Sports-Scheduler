@@ -44,7 +44,8 @@
       const lng = location.lng();
       const address = place.formatted_address || '';
   
-      // Update marker
+      // Update the location marker thing
+
       if (marker.value) marker.value.setMap(null);
   
       marker.value = new google.maps.Marker({

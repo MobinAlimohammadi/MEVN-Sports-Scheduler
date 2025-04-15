@@ -62,7 +62,7 @@ const createTeam = async () => {
     const data = await res.json();
     alert(`✅ Team "${data.name}" created!`);
 
-    // Reset fields
+    // Reset fields so they arent sticky
     teamName.value = '';
     coach.value = '';
     ageGroup.value = '';
@@ -77,7 +77,7 @@ const createTeam = async () => {
 };
 
 onMounted(() => {
-  fetchLeagues(); // ✅ Always fetch on mount
+  fetchLeagues(); // fetch on mount so you dont have to wait ages for large datasets 
 });
 
 </script>

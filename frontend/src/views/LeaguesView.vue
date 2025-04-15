@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="title">Leagues</h1>
 
-      <!-- Search -->
+      
       <div class="field">
         <input
           v-model="search"
@@ -17,7 +17,7 @@
         <table class="table is-striped is-fullwidth">
           <thead>
             <tr>
-              <th @click="sortBy('sport')">Sport</th> <!-- 🆕 Sortable -->
+              <th @click="sortBy('sport')">Sport</th>
               <th @click="sortBy('season')">Season</th>
               <th @click="sortBy('ageGroup')">Age Group</th>
               <th @click="sortBy('division')">Division</th>

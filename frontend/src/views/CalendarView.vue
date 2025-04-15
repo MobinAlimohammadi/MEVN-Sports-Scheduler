@@ -80,7 +80,7 @@ onMounted(fetchEvents);
 }
 
 .vuecal__event.match-event {
-  background-color: #6a2a2a; /* Blue for match */
+  background-color: #ff6685; /* Blue for match */
   color: white;
 }
 

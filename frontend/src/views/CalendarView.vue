@@ -80,12 +80,12 @@ onMounted(fetchEvents);
 }
 
 .vuecal__event.match-event {
-  background-color: #0b122e; /* Blue for matches */
+  background-color: #262175; /* Blue for matches */
   color: white;
 }
 
 .vuecal__event.practice-event {
-  background-color: #07270a; /* Green for practices */
+  background-color: #097d09; /* Green for practices */
   color: white;
 }
 </style>

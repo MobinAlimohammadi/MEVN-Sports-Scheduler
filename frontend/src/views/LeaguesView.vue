@@ -58,6 +58,8 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 
+const role = ref(localStorage.getItem('role') || 'guest');
+
 const leagues = ref([]);
 const search = ref('');
 const sortKey = ref('');

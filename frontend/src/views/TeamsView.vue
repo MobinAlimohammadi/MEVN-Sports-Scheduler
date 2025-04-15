@@ -101,6 +101,8 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 
+const role = ref(localStorage.getItem('role') || 'guest');
+
 const teams = ref([]);
 const search = ref('');
 const filterGender = ref('');

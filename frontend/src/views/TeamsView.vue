@@ -61,7 +61,7 @@
                 <th>Coach</th>
                 <th>Age Group</th>
                 <th>Gender</th>
-                <th class="has-text-centered">Actions</th>
+                <th v-if="role === 'admin'" class="has-text-centered">Actions</th>
               </tr>
             </thead>
             <tbody>

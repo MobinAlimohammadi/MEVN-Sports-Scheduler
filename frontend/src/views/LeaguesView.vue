@@ -22,7 +22,7 @@
               <th @click="sortBy('ageGroup')">Age Group</th>
               <th @click="sortBy('division')">Division</th>
               <th @click="sortBy('gender')">Gender</th>
-              <th class="has-text-centered">Actions</th>
+              <th v-if="role === 'admin'" class="has-text-centered">Actions</th>
             </tr>
           </thead>
           <tbody>

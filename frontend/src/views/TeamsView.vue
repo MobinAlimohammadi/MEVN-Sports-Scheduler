@@ -73,11 +73,17 @@
                 <td>{{ team.coach }}</td>
                 <td>{{ team.ageGroup }}</td>
                 <td class="has-text-capitalized">{{ team.gender }}</td>
-                <td class="has-text-centered">
-                  <button class="button is-danger is-small" @click="deleteTeam(team._id)">
-                    🗑️ Delete
-                  </button>
+
+
+                <td v-if="role === 'admin'" class="has-text-centered">
+                <button
+                  class="button is-danger is-small"
+                  @click="deleteTeam(team._id)"
+                >
+                  🗑️ Delete
+                </button>
                 </td>
+                
               </tr>
             </tbody>
           </table>

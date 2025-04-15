@@ -32,8 +32,14 @@
               <td>{{ league.ageGroup }}</td>
               <td>{{ league.division }}</td>
               <td>{{ league.gender }}</td>
-              <td class="has-text-centered">
-                <button class="button is-danger is-small" @click="deleteLeague(league._id)">
+
+
+            
+              <td v-if="role === 'admin'" class="has-text-centered">
+                <button
+                  class="button is-danger is-small"
+                  @click="deleteLeague(league._id)"
+                >
                   🗑️ Delete
                 </button>
               </td>

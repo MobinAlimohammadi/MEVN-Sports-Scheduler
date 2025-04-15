@@ -2,11 +2,11 @@
 import mongoose from 'mongoose';
 
 const LogSchema = new mongoose.Schema({
-  action: { type: String, required: true },         // e.g. "create", "delete"
-  entityType: { type: String, required: true },     // e.g. "team", "league", "event"
-  entityName: { type: String, required: true },     // e.g. "Thunderbolts"
+  action: { type: String, required: true },         
+  entityType: { type: String, required: true },     
+  entityName: { type: String, required: true },     
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  username: { type: String },                       // helpful for display
+  username: { type: String },                       
   role: { type: String },                           // admin, user, guest
   timestamp: { type: Date, default: Date.now },
 });

@@ -26,7 +26,7 @@ router.post('/', requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// Get all teams or filter by leagueId
+// Get
 router.get('/', async (req, res) => {
   try {
     const { leagueId } = req.query;
@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get single team by ID
+// Get by ID
 router.get('/:id', async (req, res) => {
   try {
     const team = await Team.findById(req.params.id);
@@ -50,7 +50,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// (Optional) Update team
+// Update team
 router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     const updated = await Team.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -60,7 +60,7 @@ router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// (Optional) Delete team
+// Del
 router.delete('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     await Team.findByIdAndDelete(req.params.id);

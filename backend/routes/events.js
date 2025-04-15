@@ -4,8 +4,7 @@ import { requireAuth, requireAdmin } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Create a new event
-// Create a new event
+
 router.post('/', requireAuth, requireAdmin, async (req, res) => {
   try {
     const { name, date, address, leagueId, teams, description, lat, lon } = req.body;
@@ -41,7 +40,7 @@ router.get('/', async (req, res) => {
 
     const query = {};
     if (leagueId) query.leagueId = leagueId;
-    if (teamId) query.teams = teamId; // events.teams includes teamId
+    if (teamId) query.teams = teamId; 
 
     const events = await Event.find(query);
     res.json(events);
@@ -50,7 +49,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// (Optional) Get single event by ID
+
 router.get('/:id', async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
@@ -61,7 +60,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// (Optional) Update an event
+// Update an event
 router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     const updated = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -71,7 +70,7 @@ router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// (Optional) Delete an event
+
 router.delete('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     await Event.findByIdAndDelete(req.params.id);

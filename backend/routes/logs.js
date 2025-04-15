@@ -1,6 +1,6 @@
 // routes/logs.js
 import express from 'express';
-import Log from '../models/Log.js'; // We'll make this model in the next step
+import Log from '../models/Log.js'; 
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 // GET /api/logs — Get recent logs
 router.get('/', async (req, res) => {
   try {
-    const logs = await Log.find().sort({ timestamp: -1 }).limit(50); // recent 50
+    const logs = await Log.find().sort({ timestamp: -1 }).limit(50); // get most recent 50 made
     res.json(logs);
   } catch (err) {
     console.error('❌ Failed to fetch logs:', err);
@@ -28,3 +28,7 @@ router.get('/', async (req, res) => {
 });
 
 export default router;
+
+
+//was going to add a logs page where the admin user would be able to see all the actions of all the users to make sure everything is in order
+//also to allow for later implementation of history, where recently deleted leagues (which also delete events and teams) can be restored

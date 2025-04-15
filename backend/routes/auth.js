@@ -3,13 +3,13 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import crypto from 'crypto';
-import { transporter } from '../utils/email.js'; // Make sure this exists!
+import { transporter } from '../utils/email.js'; 
 import dotenv from 'dotenv';
 dotenv.config();
 
 const router = express.Router();
 
-// --------------------- LOGIN ---------------------
+
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
   res.json({ token, role: user.role, username: user.username });
 });
 
-// --------------------- REGISTER ---------------------
+
 router.post('/register', async (req, res) => {
   const { username, email, password, role = 'user' } = req.body;
 
@@ -48,7 +48,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// --------------------- REQUEST PASSWORD RESET ---------------------
+
 router.post('/request-password-reset', async (req, res) => {
   const { email } = req.body;
 
@@ -83,7 +83,7 @@ router.post('/request-password-reset', async (req, res) => {
   }
 });
 
-// --------------------- RESET PASSWORD ---------------------
+
 router.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;

@@ -15,7 +15,7 @@ router.post('/', requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// Get all leagues
+// Get all of em
 router.get('/', async (req, res) => {
   try {
     const leagues = await League.find();
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a single league by ID
+// Get a single league w ID
 router.get('/:id', async (req, res) => {
   try {
     const league = await League.findById(req.params.id);
@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// (Optional) Update a league
+// Update a league
 router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     const updated = await League.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -46,7 +46,7 @@ router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
   }
 });
 
-// (Optional) Delete a league
+//  Delete a league
 router.delete('/:id', requireAuth, requireAdmin, async (req, res) => {
   try {
     await League.findByIdAndDelete(req.params.id);
